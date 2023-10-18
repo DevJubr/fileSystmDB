@@ -13,10 +13,6 @@ app.get("*", (req, res) => {
   );
 });
 
-app.get("/", (req, res) => {
-  res.send("hi bro");
-});
-
 app.listen(3500, () => {
   console.log("listening on 3500");
 });
