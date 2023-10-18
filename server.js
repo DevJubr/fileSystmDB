@@ -7,7 +7,10 @@ const app = express();
 app.use(express.json());
 app.use(cors({ methods: ["PUT", "POST", "GET", "PETCH"], credentials: true }));
 app.use(express.static(path.join(__dirname, "./front-end/dist")));
-app.get("*", (req, res) => {
+
+app.use(express.static(path.join(__dirname, "./front-end/dist")));
+
+app.get("/", (req, res) => {
   res.sendFile(
     path.resolve(__dirname, "./", "front-end", "dist", "index.html")
   );
