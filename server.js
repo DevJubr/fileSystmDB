@@ -6,7 +6,7 @@ const app = express();
 const filePath = "db.json";
 app.use(express.json());
 app.use(cors({ methods: ["PUT", "POST", "GET", "PETCH"], credentials: true }));
-// app.use(express.static(path.join(__dirname, "./front-end/dist")));
+app.use(express.static(path.join(__dirname, "./front-end/dist")));
 
 app.post("/creatP", (req, res) => {
   // 2. Parse the JSON content
@@ -27,10 +27,10 @@ app.post("/creatP", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  // res.sendFile(
-  //   path.resolve(__dirname, "./", "front-end", "dist", "index.html")
-  // );
-  res.send("hi bro");
+  res.sendFile(
+    path.resolve(__dirname, "./", "front-end", "dist", "index.html")
+  );
+  // res.send("hi bro");
 });
 
 app.listen(3500, () => {
